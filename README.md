@@ -1,5 +1,5 @@
 # Data anonymization techniques
-Techniques of data anonymization using PostgreSQL
+Techniques of data anonymization using PostgreSQL for studies!
 
 ## Extensions
 ```sql
