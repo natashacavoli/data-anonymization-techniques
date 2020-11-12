@@ -33,5 +33,24 @@ Create an user to connect, in addition to the owner.
 create user test;
 ```
 
+## Functions
+
+#### Data Masking
+```sql
+drop function if exists masking(value text, prefix integer, sub text);
+
+create function
+    masking(value text, prefix integer, sub text) returns text as
+$$
+    select
+        case
+            when user = 'your owner' then value::text
+            else
+                substring(value from 1 for prefix) || sub
+        end
+$$
+language 'sql';
+```
+
 ## How to
 Create the functions, and use it whatever you like!
