@@ -1,6 +1,11 @@
 # Data anonymization techniques
 Techniques of data anonymization using PostgreSQL
 
+## Extensions
+```sql
+create extension if not exists pgcrypto;
+```
+
 ## Tables Examples
 ```sql
 create table users (
