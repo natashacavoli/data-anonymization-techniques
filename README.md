@@ -103,5 +103,27 @@ $$
 language 'sql';
 ```
 
+#### Faking
+```sql
+drop function if exists faking(text);
+
+create function
+    faking(text) returns text as
+$$
+    select
+        case
+            when user = 'your owner' then $1::text
+            else
+                name
+        end
+    from
+        somewhere
+    order by
+        random()
+    limit 1
+$$
+language 'sql';
+```
+
 ## How to
 Create the functions, and use it whatever you like!
