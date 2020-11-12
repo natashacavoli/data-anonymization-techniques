@@ -32,3 +32,6 @@ Create an user to connect, in addition to the owner.
 ```sql
 create user test;
 ```
+
+## How to
+Create the functions, and use it whatever you like!
