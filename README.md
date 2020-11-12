@@ -26,3 +26,9 @@ create table somewhere (
 );
 
 ```
+
+## Roles
+Create an user to connect, in addition to the owner.
+```sql
+create user test;
+```
