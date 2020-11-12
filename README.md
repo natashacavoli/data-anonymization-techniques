@@ -68,5 +68,23 @@ $$
 language 'sql';
 ```
 
+#### Generalization
+```sql
+drop function if exists age_f(date);
+
+create function
+    age_f(date) returns text as
+$$
+    select
+        case
+            when user = 'your owner' then $1::text
+            else
+                'between ' || extract(year from age(date_trunc('decade', $1::date) + '1 decade'::interval))::text
+                || ' and ' || extract(year from age(date_trunc('decade', $1::date)))::text
+        end
+$$
+language 'sql';
+```
+
 ## How to
 Create the functions, and use it whatever you like!
