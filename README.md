@@ -86,5 +86,22 @@ $$
 language 'sql';
 ```
 
+#### Variance
+```sql
+drop function if exists variance(num integer, factor double precision);
+
+create function
+    variance(num integer, factor double precision) returns integer as
+$$
+    select
+        case
+            when user = 'your owner' then num::integer
+            else
+                (num::integer * (1 + (2 * random() - 1) * factor))::integer
+        end
+$$
+language 'sql';
+```
+
 ## How to
 Create the functions, and use it whatever you like!
